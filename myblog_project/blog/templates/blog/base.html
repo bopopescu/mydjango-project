@@ -1,0 +1,79 @@
+{% load blog_tags %}
+{% load staticfiles%}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%block title%}{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
+
+<header>
+    {% include "navbar.html" %}
+    <div class="container">
+
+
+            <div class="row">
+               <div class="jumbotron myjumbotron text-center">
+                   <h1><a href="{% url 'blog:post_list' %}" >My Blog</a></h1>
+                   <form class="navbar-form navbar-left" style="text-align:center;">
+                    <div class="form-group">
+                     <input type="text" class="form-control" size="50" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                     </form>
+               </div>
+            </div>
+    </div>
+</header>
+        <main id="main">
+
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </main>
+        <div id="sidebar">
+                    <h2 id="center">My blog</h2>
+                    <p id="center">This is my blog. I've written {% total_posts %} posts so far.</p>
+
+                    <p><a href="{% url 'blog:post_feed' %}"></a> </p>
+                {% block categories %}
+                {% endblock %}
+
+                    <h3 id="center">Latest posts</h3>
+                {% show_latest_posts 3 %}
+
+                    <h3 id="center">Most commented posts</h3>
+                {% get_most_commented_posts as most_commented_posts %}
+                <ul>
+                {% for post in most_commented_posts %}
+                    <li>
+                        <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            <h1><a href="{% url 'blog:post_search' %}">Search</a> </h1>
+            <h1><a href="{%url 'geo:home' %}">따릉이</a></h1>
+        </div>
+        <!--<footer class="container-fluid text-center">-->
+            <!--<a href="#myPage" title=""To Top">-->
+                <!--<span class="glyphicon glyphicon-chevron-up"></span>-->
+            <!--</a>-->
+
+        <!--</footer>-->
+    </div>
+</body>
+</html>

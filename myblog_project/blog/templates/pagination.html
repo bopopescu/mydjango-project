@@ -1,0 +1,26 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+<!--<div class="pagination">-->
+    <!--<span class="step-links">-->
+        <!--<ul class="pager">-->
+        <!--{% if page.has_previous %}-->
+         <!--<a href="?page={{page.previous_page_number}}">Previous</a>-->
+        <!--{% endif %}-->
+        <!--</ul>-->
+        <!--<ul id="center">-->
+            {% bootstrap_pagination page size='large' pages_to_show=5 %}
+        <!--</ul>-->
+
+        <!--<span class="current">-->
+            <!--Page {{page.number}} of {{page.paginator.num_pages}}.-->
+        <!--</span>-->
+
+        <!--<ul class="pager">-->
+         <!--{% if page.has_next %}-->
+           <!--<a href="?page={{page.next_page_number}}">Next</a>-->
+         <!--{% endif %}-->
+        <!--</ul>-->
+    <!--</span>-->
+<!--</div>-->

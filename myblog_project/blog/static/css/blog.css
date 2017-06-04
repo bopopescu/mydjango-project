@@ -1,0 +1,46 @@
+@import url('http://fonts.googleapis.com/earlyaccess/jejugothic.css');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Passion+One');
+/*header-side ;*/
+.myjumbotron{
+height:300px;
+width:100% !important;
+background-color: #033b47 !important;
+color:#DCEEF2 !important;
+font-family:'Passion One', sans-serif;
+padding:100px 25px;
+}
+
+
+
+
+/*main-side*/
+main{
+    margin:0;
+    padding:0;
+    font-family: 'Ubuntu' , sans-serif;
+    font-family: 'Jeju Gothic', sans-serif;
+
+}
+
+a{
+    color:#00abff;
+    text-decoration:none;
+}
+
+
+#content{float:left;width:60%;padding:0 0 0 30px;font-family: 'Ubuntu' , sans-serif;}
+#sidebar{float:right;width:30%;padding:10px;background:#efefef;height:100%;font-family: 'Ubuntu' , sans-serif;}
+#center{text-align:center;}
+#paging{text-align:center;}
+p.date{color:#ccc;font-family:georgia,serif;font-size:12px;font-style:italic;}
+/*pagination*/
+.pagination{margin:40px 0;font-weight:bold;text-align:center;}
+label{float:left;clear:both;color:#333;margin-bottom:4px;}
+input, textarea{clear:both;float:left;margin:0 0 10px;background:#ededed;border:0;padding:10px 20px;font-size:14px;text-transform:uppercase;}
+.errorlist{color:#cc0033;float:left;clear:both;padding-left:10px;}
+/*comments*/
+.comment{padding:10px;}
+.comment:nth-child(even){background:#efefef;}
+.comment .info{
+font-weight:bold;font-size:12px;color:#666;}

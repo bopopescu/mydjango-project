@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load leaflet_tags %}
+{% load geojson_tags %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Our Map</title>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" type="text/javascript"></script>
+    <script src="{% static 'dist/leaflet.ajax.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'dist/spin.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'dist/leaflet.spin.min.js' %}" type="text/javascript"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientID=qPFwaMrto9TPoxNfeT_T&submodules=panorama"></script>
+<style>
+
+
+</style>
+</head>
+<body>
+<h2>This is our page</h2>
+<div id="seoul" style="height:600px">
+{% leaflet_map "seoul" callback="window.ourfunction" %}
+    </div>
+<script type="text/javascript">
+function ourfunction(map, options){
+
+    var dataurl = "{% url 'geo:data' %}";
+
+    var geojsonPointLayer = new L.GeoJSON.AJAX(dataurl, {
+    onEachFeature:function(feature, layer){
+
+    <!--var fenway = new google.maps.LatLng(feature.properties.latitude.toString(), feature.properties.longitude.toString());-->
+    <!--var panoramaOptions = {-->
+      <!--position:fenway,-->
+      <!--pov:{-->
+       <!--heading:34,-->
+       <!--pitch:10-->
+      <!--}-->
+    <!--};-->
+    <!--var panorama = new google.maps.StreetViewPanorama(document.getElementById('seoul'), panoramaOptions);-->
+
+    <!--var pano = null;-->
+    <!--function initPanorama(){-->
+    <!--pano = new naver.maps.Panorama(document.getElementById("pano"),{-->
+        <!--position: new naver.maps.LatLng(feature.properties.latitude.toString(),-->
+                                        <!--feature.properties.longitude.toString()),-->
+        <!--size: new naver.maps.Size(250,100)});-->
+    <!--}-->
+    <!--+-->
+          <!--'<div id="pano"></div>' + initPanorama()-->
+
+
+    layer.bindPopup( feature.properties.name.toString());
+
+
+    }}
+    );
+    geojsonPointLayer.addTo(map);
+
+}
+</script>
+</body>
+</html>

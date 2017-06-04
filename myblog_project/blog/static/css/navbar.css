@@ -1,0 +1,26 @@
+.navbar{
+margin-bottom:0;
+background-color:#033b47 !important;
+color:#DCEEF2 !important;
+z-index:9999;
+border:0;
+font-size: 12px !important;
+
+letter-spacing: 4px;ss
+font-family:'Ubuntu', sans-serif;
+}
+.navbar li a, .navbar .navbar-brand{
+color:#DCEEF2 !important;
+}
+
+.navbar-nav a:hover, .navbar-nav li.active a {
+color:#033b47 !important;
+background-color:#DCEEF2 !important;
+}
+
+.navbar-default .navbar-toggle{
+border-color: transparent;
+background-color:#DCEEF2 !important;
+}
+
+/*line-height:1.42857143 !important;*/
